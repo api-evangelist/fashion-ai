@@ -1,0 +1,70 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Fashion AI API
+  description: Segmind Fashion AI is an in-painting model that edits clothing in an input image based on a text prompt. The
+    image is center-cropped and resized to 512x512 before processing, and the model returns an edited image.
+  tags:
+  - Fashion
+  - Ai
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: fashion-ai
+    baseUri: https://api.segmind.com/v1
+    description: Fashion AI API HTTP API.
+    authentication:
+      type: apikey
+      in: header
+      name: x-api-key
+      value: '{{FASHION_AI_TOKEN}}'
+    resources:
+    - name: fashion-ai
+      path: /fashion-ai
+      operations:
+      - name: editfashion
+        method: POST
+        description: Edit clothing in an image
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: fashion-ai-rest
+    description: REST adapter for Fashion AI API.
+    resources:
+    - path: /fashion-ai
+      name: editfashion
+      operations:
+      - method: POST
+        name: editfashion
+        description: Edit clothing in an image
+        call: fashion-ai.editfashion
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: fashion-ai-mcp
+    transport: http
+    description: MCP adapter for Fashion AI API for AI agent use.
+    tools:
+    - name: editfashion
+      description: Edit clothing in an image
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: fashion-ai.editfashion
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    FASHION_AI_TOKEN: FASHION_AI_TOKEN
