@@ -15,7 +15,7 @@ apis:
       - url: https://www.segmind.com/models/fashion-ai
         type: Documentation
       - url: https://www.segmind.com/models/fashion-ai/api
-        type: API Reference
+        type: APIReference
       - url: https://raw.githubusercontent.com/api-evangelist/fashion-ai/refs/heads/main/openapi/fashion-ai-openapi.yml
         type: OpenAPI
     description: >-
