@@ -1,0 +1,82 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Fashion AI API — Fashion
+  description: 'Fashion AI API — Fashion. 1 operations. Lead operation: Edit clothing in an image. Self-contained Naftiko
+    capability covering one Fashion Ai business surface.'
+  tags:
+  - Fashion Ai
+  - Fashion
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FASHION_AI_API_KEY: FASHION_AI_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: fashion-ai-fashion
+    baseUri: https://api.segmind.com/v1
+    description: Fashion AI API — Fashion business capability. Self-contained, no shared references.
+    resources:
+    - name: fashion-ai
+      path: /fashion-ai
+      operations:
+      - name: editfashion
+        method: POST
+        description: Edit clothing in an image
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: x-api-key
+      value: '{{env.FASHION_AI_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: fashion-ai-fashion-rest
+    port: 8080
+    description: REST adapter for Fashion AI API — Fashion. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/fashion-ai
+      name: fashion-ai
+      description: REST surface for fashion-ai.
+      operations:
+      - method: POST
+        name: editfashion
+        description: Edit clothing in an image
+        call: fashion-ai-fashion.editfashion
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: fashion-ai-fashion-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Fashion AI API — Fashion. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: edit-clothing-image
+      description: Edit clothing in an image
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: fashion-ai-fashion.editfashion
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
