@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Fashion AI API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Fashion",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Edit clothing in an image",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.segmind.com/v1/fashion-ai",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Performs an in-painting edit on the clothing region of the input image using the supplied text prompt. The clothing parameter selects whether topwear or bottomwear is edited."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
