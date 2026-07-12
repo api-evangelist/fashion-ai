@@ -41,4 +41,10 @@ maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
 specificationVersion: '0.19'
-common: []
+common:
+  - type: DomainSecurity
+    url: security/fashion-ai-domain-security.yml
+  - type: Authentication
+    url: authentication/fashion-ai-authentication.yml
+  - url: https://blog.segmind.com/feed/
+    type: Blog
