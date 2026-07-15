@@ -42,6 +42,8 @@ maintainers:
     email: kin@apievangelist.com
 specificationVersion: '0.19'
 common:
+  - type: AgenticAccess
+    url: agentic-access/fashion-ai-agentic-access.yml
   - type: DomainSecurity
     url: security/fashion-ai-domain-security.yml
   - type: Authentication
