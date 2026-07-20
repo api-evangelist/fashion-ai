@@ -22,6 +22,7 @@ apis:
       prompt. It accepts an input image (auto center-cropped and resized to 512x512), a text prompt, and an optional
       clothing region selector (topwear or bottomwear). Authentication is via the x-api-key header.
 name: Fashion AI
+kind: topic
 tags:
   - Clothing
   - Fashion
