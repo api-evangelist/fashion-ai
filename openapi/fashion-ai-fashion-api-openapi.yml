@@ -1,30 +1,26 @@
 openapi: 3.1.0
 info:
-  title: Fashion AI API
-  description: >-
-    Segmind Fashion AI is an in-painting model that edits clothing in an input
-    image based on a text prompt. The image is center-cropped and resized to
-    512x512 before processing, and the model returns an edited image.
+  title: AI Fashion API
+  description: Segmind Fashion AI is an in-painting model that edits clothing in an input image based on a text prompt. The image is center-cropped and resized to 512x512 before processing, and the model returns an edited image.
   version: '1.0'
   contact:
     name: Segmind
     url: https://www.segmind.com/models/fashion-ai
 servers:
-  - url: https://api.segmind.com/v1
-    description: Segmind production API
+- url: https://api.segmind.com/v1
+  description: Segmind production API
 security:
-  - ApiKeyAuth: []
+- ApiKeyAuth: []
+tags:
+- name: Fashion
 paths:
   /fashion-ai:
     post:
       operationId: editFashion
       summary: Edit clothing in an image
-      description: >-
-        Performs an in-painting edit on the clothing region of the input image
-        using the supplied text prompt. The clothing parameter selects whether
-        topwear or bottomwear is edited.
+      description: Performs an in-painting edit on the clothing region of the input image using the supplied text prompt. The clothing parameter selects whether topwear or bottomwear is edited.
       tags:
-        - Fashion
+      - Fashion
       requestBody:
         required: true
         content:
@@ -62,31 +58,29 @@ paths:
         '504':
           description: Gateway Timeout.
 components:
-  securitySchemes:
-    ApiKeyAuth:
-      type: apiKey
-      in: header
-      name: x-api-key
   schemas:
     FashionEditRequest:
       type: object
       required:
-        - image
-        - prompt
+      - image
+      - prompt
       properties:
         image:
           type: string
           format: uri
-          description: >-
-            Input image to in-paint. The image is center-cropped and resized to
-            512x512 prior to processing.
+          description: Input image to in-paint. The image is center-cropped and resized to 512x512 prior to processing.
         prompt:
           type: string
           description: Text prompt describing the desired clothing edit.
         clothing:
           type: string
           enum:
-            - topwear
-            - bottomwear
+          - topwear
+          - bottomwear
           default: topwear
           description: Which clothing region to edit.
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
