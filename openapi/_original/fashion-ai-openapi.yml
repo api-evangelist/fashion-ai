@@ -1,0 +1,92 @@
+openapi: 3.1.0
+info:
+  title: Fashion AI API
+  description: >-
+    Segmind Fashion AI is an in-painting model that edits clothing in an input
+    image based on a text prompt. The image is center-cropped and resized to
+    512x512 before processing, and the model returns an edited image.
+  version: '1.0'
+  contact:
+    name: Segmind
+    url: https://www.segmind.com/models/fashion-ai
+servers:
+  - url: https://api.segmind.com/v1
+    description: Segmind production API
+security:
+  - ApiKeyAuth: []
+paths:
+  /fashion-ai:
+    post:
+      operationId: editFashion
+      summary: Edit clothing in an image
+      description: >-
+        Performs an in-painting edit on the clothing region of the input image
+        using the supplied text prompt. The clothing parameter selects whether
+        topwear or bottomwear is edited.
+      tags:
+        - Fashion
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FashionEditRequest'
+      responses:
+        '200':
+          description: Edited image returned as binary content.
+          content:
+            image/jpeg:
+              schema:
+                type: string
+                format: binary
+            image/png:
+              schema:
+                type: string
+                format: binary
+        '400':
+          description: Bad Request - invalid parameters.
+        '401':
+          description: Unauthorized - missing or invalid API key.
+        '403':
+          description: Forbidden - insufficient permissions.
+        '404':
+          description: Not Found - endpoint unavailable.
+        '406':
+          description: Not Acceptable - insufficient credits.
+        '429':
+          description: Too Many Requests - rate limit exceeded.
+        '500':
+          description: Internal Server Error.
+        '502':
+          description: Bad Gateway.
+        '504':
+          description: Gateway Timeout.
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+  schemas:
+    FashionEditRequest:
+      type: object
+      required:
+        - image
+        - prompt
+      properties:
+        image:
+          type: string
+          format: uri
+          description: >-
+            Input image to in-paint. The image is center-cropped and resized to
+            512x512 prior to processing.
+        prompt:
+          type: string
+          description: Text prompt describing the desired clothing edit.
+        clothing:
+          type: string
+          enum:
+            - topwear
+            - bottomwear
+          default: topwear
+          description: Which clothing region to edit.

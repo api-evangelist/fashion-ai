@@ -1,0 +1,14 @@
+{
+  "provider": "fashion-ai",
+  "sources": [
+    "fashion-ai-fashion-api-openapi.yml"
+  ],
+  "outputs": [
+    "fashion-ai-fashion-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
