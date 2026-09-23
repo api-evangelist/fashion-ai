@@ -1,0 +1,1 @@
+{"resource":"https://mcp.segmind.com/mcp","authorization_servers":["https://cloud.segmind.com/api"],"scopes_supported":["models:read","models:invoke"],"bearer_methods_supported":["header"],"resource_name":"Segmind MCP Server"}

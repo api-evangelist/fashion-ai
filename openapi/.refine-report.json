@@ -1,7 +1,7 @@
 {
   "provider": "fashion-ai",
   "sources": [
-    "fashion-ai-fashion-api-openapi.yml"
+    "_original/fashion-ai-openapi.yml"
   ],
   "outputs": [
     "fashion-ai-fashion-api-openapi.yml"
@@ -9,6 +9,13 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "fashion-ai-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "fashion-ai-openapi.yml: declared missing tag: Fashion",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "fashion-ai-fashion-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
