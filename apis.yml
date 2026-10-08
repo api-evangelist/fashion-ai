@@ -62,6 +62,12 @@ maintainers:
     email: kin@apievangelist.com
 specificationVersion: '0.23'
 common:
+  - type: Plans
+    url: plans/fashion-ai-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/fashion-ai-rate-limits.yml
+  - type: FinOps
+    url: finops/fashion-ai-finops.yml
   - type: AgenticAccess
     url: agentic-access/fashion-ai-agentic-access.yml
   - type: DomainSecurity
