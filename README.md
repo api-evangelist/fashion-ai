@@ -1,4 +1,4 @@
-# Fashion AI (fashion-ai)
+# Fashion AI
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,49 +66,44 @@
 
 Fashion AI is a cutting-edge technology that uses artificial intelligence to revolutionize the way we shop for clothing. By analyzing vast amounts of data on trends, styles, and customer preferences, Fashion AI can predict the next big fashion trends, personalize recommendations for shoppers, and even create custom designs based on individual tastes. This innovative technology not only streamlines the shopping experience but also helps retailers optimize their inventory and marketing strategies.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/fashion-ai/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/fashion-ai/refs/heads/main/apis.yml)
+**Areas:** Clothing · Fashion
 
-## Scope
+## Fashion AI on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for Fashion AI is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/fashion-ai/](https://apis.io/providers/fashion-ai/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (1)
 
-- Clothing
-- Fashion
+- Fashion AI Fashion API — The Fashion API from Fashion AI — 1 operation(s) for fashion.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2025-02-08
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### MCP servers (1)
 
-### Fashion AI
+Model Context Protocol servers that expose the API to agents.
 
-Segmind Fashion AI is an AI-powered in-painting service that edits the clothing region of an image based on a text prompt. It accepts an input image (auto center-cropped and resized to 512x512), a text prompt, and an optional clothing region selector (topwear or bottomwear). Authentication is via the x-api-key header.
+- [fashion-ai](https://apis.io/servers/fashion-ai/fashion-ai/)
 
-- **Human URL:** [https://www.segmind.com/models/fashion-ai](https://www.segmind.com/models/fashion-ai)
-- **Base URL:** `https://api.segmind.com/v1`
+## Where to find this API
 
-#### Tags
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-- Clothing
-- Fashion
-- AI
-- Image Editing
+- [Blog](https://blog.segmind.com/feed/)
 
-#### Properties
+## API Evangelist rating
 
-- [Documentation](https://www.segmind.com/models/fashion-ai)
-- [API Reference](https://www.segmind.com/models/fashion-ai/api)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/fashion-ai/refs/heads/main/openapi/fashion-ai-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/fashion-ai.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/fashion-ai.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Not yet rated. See [apis.io/providers/fashion-ai/](https://apis.io/providers/fashion-ai/).
 
-## Maintainers
+## How this profile is made
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Fashion AI: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/fashion-ai/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
